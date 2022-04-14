@@ -1,0 +1,33 @@
+extends layout
+block content
+  h1= title
+  p Welcome to the gooogle 
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let icemagic = [
+                    {
+                        "Itemname": "animal",
+                        "Quantity": 20,
+                        "price": "ten USD"
+                    },
+                    {
+                        "Itemname": "food",
+                        "Quantity": 90,
+                        "price": "fifteen USD"
+                    },
+                    {
+                        "Itemname": "birds",
+                        "Quantity": 150,
+                        "price": "Twenty Two USD"
+                    },                   
+                ]
+            each v,index in gooogle
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Itemname}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Quantity}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
+  script.                
+        function buy(intemNo)
+        {
+              alert(`you purchased Item ${intemNo+1}`)
+        }
