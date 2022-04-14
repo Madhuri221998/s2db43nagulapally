@@ -61,25 +61,25 @@ async function recreateDB() {
   // Delete everything
   await Costume.deleteMany();
 
-  let instance1 = new Costume({ costume_type: "Mummy", size: 'large', cost: 25.4 });
+  let instance1 = new Costume({ costume_type: "music", size: 'large', cost: 25.4 });
   instance1.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("First object saved in Costume")
   });
 
-  let instance2 = new Costume({ costume_type: "Dog", size: 'small', cost: 16 });
+  let instance2 = new Costume({ costume_type: "dance", size: 'small', cost: 16 });
   instance2.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Second object saved in Costume")
   });
 
-  let instance3 = new Costume({ costume_type: "Superman", size: 'medium', cost: 12.4 });
+  let instance3 = new Costume({ costume_type: "food", size: 'medium', cost: 12.4 });
   instance3.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Third object saved in Costume")
   });
 
-  let instance4 = new Costume({ costume_type: "Cat", size: 'large', cost: 22 });
+  let instance4 = new Costume({ costume_type: "run", size: 'large', cost: 22 });
   instance4.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Fourth object saved in Costume")
@@ -88,25 +88,25 @@ async function recreateDB() {
 // Delete everything in Mobile
   await Mobile.deleteMany();
 
-  let instance5 = new Mobile({ mobile_brand: "Apple", mobile_color: 'Green', mobile_cost: 3205 });
+  let instance5 = new Mobile({ mobile_brand: "cricket", mobile_color: 'Green', mobile_cost: 3205 });
   instance5.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("First object saved in Mobile")
   });
 
-  let instance6 = new Mobile({ mobile_brand: "Red mi", mobile_color: 'Red', mobile_cost: 4207 });
+  let instance6 = new Mobile({ mobile_brand: "basket Ball", mobile_color: 'Red', mobile_cost: 4207 });
   instance6.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Second object saved in Mobile")
   });
 
-  let instance7 = new Mobile({ mobile_brand: "Ream me", mobile_color: 'Gray', mobile_cost: 3034 });
+  let instance7 = new Mobile({ mobile_brand: "golf", mobile_color: 'Gray', mobile_cost: 3034 });
   instance7.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Third object saved in Mobile")
   });
 
-  let instance8 = new Mobile({ mobile_brand: "Nokia", mobile_color: 'black', mobile_cost: 1950 });
+  let instance8 = new Mobile({ mobile_brand: "hockey", mobile_color: 'black', mobile_cost: 1950 });
   instance8.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Fourth object saved in Mobile")
