@@ -9,12 +9,12 @@ mongoose = require('mongoose');
 mongoose.connect(connectionString,
   { useNewUrlParser: true, useUnifiedTopology: true });
 
-var customer = require("./models/customer");
+var Costume = require("./models/costume");
 var Mobile = require("./models/mobile");
 var gooogleRouter = require('./routes/gooogle');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var mobilesRouter = require('./routes/mobiles');
+var mobileRouter = require('./routes/mobile');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/gooogle', gooogleRouter);
 app.use('/users', usersRouter);
-app.use('/mobiles', mobilesRouter);
+app.use('/mobile', mobileRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter)
 app.use('/resource', resourceRouter);
