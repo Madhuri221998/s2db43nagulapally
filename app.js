@@ -9,7 +9,7 @@ mongoose = require('mongoose');
 mongoose.connect(connectionString,
   { useNewUrlParser: true, useUnifiedTopology: true });
 
-var Costume = require("./models/costume");
+var customer = require("./models/customer");
 var Mobile = require("./models/mobile");
 var gooogleRouter = require('./routes/gooogle');
 var indexRouter = require('./routes/index');
