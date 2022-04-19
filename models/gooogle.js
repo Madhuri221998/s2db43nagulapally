@@ -1,8 +1,8 @@
 const mongoose = require("mongoose") 
 const gooogleSchema = mongoose.Schema({ 
- Itemname: String, 
- Quantity: Number, 
- price: Number 
+ gooogle_itemname: String, 
+ gooogle_quanitiy: Number, 
+ gooogle_price: Number 
 }) 
  
-module.exports = mongoose.model("gooogle", gooogleSchema)
+module.exports = mongoose.model("gooogle", gooogleSchema) 

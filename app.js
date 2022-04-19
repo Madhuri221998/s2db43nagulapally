@@ -18,6 +18,7 @@ var addmodsRouter=require('./routes/addmods');
 var selectorRouter=require('./routes/selector');
 var gooogle = require('./models/gooogle');
 var resourceRouter=require('./routes/resource');
+var details=require('./routes/details');
 var app = express();
 
 // view engine setup
@@ -31,24 +32,24 @@ async function recreateDB(){
  await gooogle.deleteMany();
 
  let instance1 = new
-gooogle({Itemname:"Dark Chocolate", Quantity:5,
-price:15});
+gooogle({gooogle_itemname:book, gooogle_quantity:"2",
+gooogle_price:130});
  instance1.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("First object saved")
  });
 
 let instance2 = new
-gooogle({Itemname:"Strawberry", Quantity:5,
-price:12});
+gooogle({gooogle_itemname:pen, gooogle_quantity:"2",
+gooogle_price:40});
  instance2.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("Second object saved")
  });
 
  let instance3 = new
-gooogle({Itemname:"Vanilla", Quantity:4,
-price:10});
+gooogle({gooogle_itemname:scale, gooogle_quantity:"5",
+gooogle_price:12});
  instance3.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("Third object saved")
@@ -75,6 +76,7 @@ app.use('/gooogle',gooogleRouter);
 app.use('/addmods',addmodsRouter);
 app.use('/selector',selectorRouter);
 app.use('/resource',resourceRouter);
+app.use('/gooogle/details',details);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

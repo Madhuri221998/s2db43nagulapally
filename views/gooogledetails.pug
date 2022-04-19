@@ -1,0 +1,22 @@
+extends layout 
+
+block content
+    h1=title 
+
+    -let gooogleid = toShow._id
+    - let gooogle_itemname = toShow.gooogle_itemname
+    - let gooogle_quantity = toShow.gooogle_quantity
+    - let gooogle_price = toShow.gooogle_price
+    div 
+        .row 
+            div(class='gooogleAttr mr-3') gooogle ID is:  
+            div #{gooogleid}
+        div.row
+            div(class='gooogleAttr mr-3') gooogle itemname is:
+            div #{gooogle_itemname}
+        div.row
+            div(class='gooogleAttr mr-3') gooogle quantity is:
+            div #{gooogle_quantity}
+        div.row
+            div(class='gooogleAttr mr-3') gooogle price is:
+            div #{gooogle_price}
