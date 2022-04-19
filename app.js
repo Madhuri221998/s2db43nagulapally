@@ -18,7 +18,7 @@ var addmodsRouter=require('./routes/addmods');
 var selectorRouter=require('./routes/selector');
 var gooogle = require('./models/gooogle');
 var resourceRouter=require('./routes/resource');
-var details=require('./routes/details');
+var detail=require('./routes/detail');
 var app = express();
 
 // view engine setup
@@ -76,7 +76,7 @@ app.use('/gooogle',gooogleRouter);
 app.use('/addmods',addmodsRouter);
 app.use('/selector',selectorRouter);
 app.use('/resource',resourceRouter);
-app.use('/gooogle/details',details);
+app.use('/gooogle/detail',detail);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
