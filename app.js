@@ -18,7 +18,6 @@ var addmodsRouter=require('./routes/addmods');
 var selectorRouter=require('./routes/selector');
 var gooogle = require('./models/gooogle');
 var resourceRouter=require('./routes/resource');
-var detail=require('./routes/detail');
 var app = express();
 
 // view engine setup
@@ -33,7 +32,7 @@ async function recreateDB(){
 
  let instance1 = new
 gooogle({gooogle_itemname:book, gooogle_quantity:"2",
-gooogle_price:130});
+gooogle_price:30});
  instance1.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("First object saved")
@@ -41,24 +40,21 @@ gooogle_price:130});
 
 let instance2 = new
 gooogle({gooogle_itemname:pen, gooogle_quantity:"2",
-gooogle_price:40});
+gooogle_price:50});
  instance2.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("Second object saved")
  });
 
  let instance3 = new
-gooogle({gooogle_itemname:scale, gooogle_quantity:"5",
-gooogle_price:12});
+gooogle({gooogle_itemname:scale, gooogle_quantity:"10",
+gooogle_price:24});
  instance3.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("Third object saved")
  });
 
 }
-
-// List of all Costumes
-
 
 let reseed = true;
 if (reseed) { recreateDB();}
@@ -76,7 +72,6 @@ app.use('/gooogle',gooogleRouter);
 app.use('/addmods',addmodsRouter);
 app.use('/selector',selectorRouter);
 app.use('/resource',resourceRouter);
-app.use('/gooogle/detail',detail);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
