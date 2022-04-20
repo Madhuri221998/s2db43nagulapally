@@ -1,0 +1,43 @@
+extends layout
+block content
+    h1= title
+    if (toShow == null)
+        h2 No instance to view update
+    else
+        - let gooogleid = toShow._id
+        - let gooogle_itemname = toShow.gooogle_itemname
+        - let gooogle_quantity = toShow.gooogle_quantity
+        - let gooogle_price = toShow.gooogle_price
+
+        div.row(class='mb-2')
+            div.mr-1 ID is
+            div #{gooogleid}
+        - let actionid = "/resource/gooogle/" + gooogleid
+        form(id='gooogleForm', action= actionid, method="PUT")
+            div.form-group
+                label.gooogleAttr(for='gooogle_itemname') gooogle itemname
+                input#gooogle_itemname(type='number', name='gooogle_itemname', value= gooogle_itemname )
+            div.form-group
+                label.gooogleAttr(for='gooogle_quantity') gooogle size
+                input#gooogle_quantity(type='text', name='gooogle_quantity', value= gooogle_quantity )
+            div.form-group
+                label.gooogleAttr(for='gooogle_price') gooogle cost
+                input#gooogle_price(type='number', name='gooogle_price', value= gooogle_price )
+            input(type="submit")
+        script.
+            document.forms['gooogleForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+                // TODO do something here to show user that form is being submitted
+                fetch(event.target.action, {
+                method: 'PUT',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+                }).then((resp) => {
+                return resp.json(); // or resp.text() or whatever the server sends
+                }).then((body) => {
+                alert("Update succeded")
+                // TODO handle body
+                }).catch((error) => {
+                // TODO handle error
+                alert("Update failed " + error )
+                 });
+                });

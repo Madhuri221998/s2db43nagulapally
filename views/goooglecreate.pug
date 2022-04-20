@@ -1,0 +1,31 @@
+extends layout
+block content
+    h1= title
+    form(id='gooogleForm', action="/resource/gooogle", method="POST")
+        div.form-group
+            label.gooogleAttr(for='gooogle_itemname') gooogle itemname
+            input#gooogle_itemname(type='number', name='gooogle_itemname')
+        div.form-group
+            label.gooogleAttr(for='gooogle_quantity') gooogle quantity
+            input#gooogle_quantity(type='text', name='gooogle_quantity')
+        div.form-group
+            label.gooogleAttr(for='gooogle_price') gooogle price
+            input#gooogle_price(type='number', name='gooogle_price')
+        input(type="submit")
+    script.
+        document.forms['gooogleForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+         }).then((resp) => {
+         return resp.json(); // or resp.text() or whatever the server sends
+         }).then((body) => {
+        alert("Save succeded")
+        // TODO handle body
+        }).catch((error) => {
+        // TODO handle error
+        alert("Save failed " + error )
+        });
+        });
