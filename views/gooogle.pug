@@ -1,20 +1,31 @@
 extends layout
 
 block content
+  - let destinationCreate = `dispatch(\"/gooogle/create")` 
+  div(class="row-sm-1", class="m-1")
+  button.btn( class="btn-primary ml-1", onclick= destinationCreate) Create
+
   h1= title
-  p gooogle Details
+  p House Details
   div(class="container-fluid")
         div(class="row")
             - let gooogle = results
-            each v,index in gooogle
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.gooogle_itemname}
                 
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.gooogle_quantity}
-                
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.gooogle_price}
-                br
+  div(class="container-fluid") 
+    div(class="row m-1") 
+      each item in gooogle  
+        - let destination = `dispatch(\"/gooogle/update?id=${item._id}\")` 
+        - let destinationDelete = `dispatch(\"/gooogle/delete?id=${item._id}\")` 
+        - let destinationDetail = `dispatch(\"/gooogle/detail?id=${item._id}\")` 
+        div(class="row-sm-1", class="m-1") Item #{item.gooogle_rooms}(#{item.gooogle_area}) is #{item.gooogle_rent} 
+          button.btn( class="btn-primary ml-1", onclick= destination) Update 
+          button.btn( class="btn-primary ml-1", onclick= destinationDelete) Delete
+          button.btn( class="btn-primary ml-1", onclick= destinationDetail) Detail
+
+        
+
   script.                
-        function buy(intemNo)
-        {
-              alert(`you purchased Item ${intemNo+1}`)
-        }
+       
+        function dispatch(path){ 
+            window.location.href=path 
+            } 
